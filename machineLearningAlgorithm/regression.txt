@@ -1,0 +1,84 @@
+##simple linear regression 
+(Q)why we call it simple linear regression?
+(ans) it depends on number of inputs, so whenever we have single input we call it simple linear regression
+and if we have multiple inputs we call it multiple linear regression
+
+y = mx + c
+x is the independent variable 
+
+h(tita) = tita(not) + tita(one)x
+
+tita(not) indicates intercept 
+tita(one) is slope or coeffieient
+
+## multiple linear regression
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3
+
+## polynomial regression
+y = tita(not) + tita(one)x + tita(two)x^2 + tita(three)x^3
+
+## logistic regression
+y = 1 / (1 + e^(-h(tita)))
+## linear regression
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n)
+
+## linear regression with multiple inputs
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n)
+
+## linear regression with multiple inputs and polynomial terms 
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n) + tita(n+1)x1^2 + tita(n+2)x2^2 + ... + tita(m)x(m)^2
+
+## linear regression with multiple inputs and interaction terms
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n) + tita(n+1)x1*x2 + tita(n+2)x1*x3 + ... + tita(m)x(m)*x(n)
+
+## linear regression with multiple inputs and polynomial terms and interaction terms
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n) + tita(n+1)x1^2 + tita(n+2)x2^2 + ... + tita(m)x(m)^2 + tita(m+1)x1*x2 + tita(m+2)x1*x3 + ... + tita(p)x(m)*x(n)
+
+## linear regression with multiple inputs and polynomial terms and interaction terms and regularization
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n) + tita(n+1)x1^2 + tita(n+2)x2^2 + ... + tita(m)x(m)^2 + tita(m+1)x1*x2 + tita(m+2)x1*x3 + ... + tita(p)x(m)*x(n) + lambda * (tita(one)^2 + tita(two)^2 + ... + tita(p)^2)
+
+## linear regression with multiple inputs and polynomial terms and interaction terms and regularization and feature selection
+y = tita(not) + tita(one)x1 + tita(two)x2 + tita(three)x3 + ... + tita(n)x(n) + tita(n+1)x1^2 + tita(n+2)x2^2 + ... + tita(m)x(m)^2 + tita(m+1)x1*x2 + tita(m+2)x1*x3 + ... + tita(p)x(m)*x(n) + lambda * (tita(one)^2 + tita(two)^2 + ... + tita(p)^2) - alpha * (tita(one) + tita(two) + ... + tita(p))
+
+## cost function
+J(tita) = 1/2m * sum((h(tita) - y)^2)
+where,
+m is the number of training examples
+h is the hypothesis function
+tita is the vector of parameters
+y is the vector of target values
+
+## Convergence Algorithm
+
+Convergence Algorithm is used to optimize the changes of tita(one) values and repeat until Convergence, here Convergence means the global minima and now you understand the meaning of convergence, you can have also understand the term "repeat until convergence" which means you will repeat the process until you reach the global minima.
+
+repeat until convergence:
+tita(J) = tita(j) - alpha * derivative(tita(J)) with respect to tita(J)
+
+where,
+tita(J) is the vector of parameters at iteration j
+alpha is the learning rate
+derivative(tita(J)) is the gradient of the cost function with respect to tita(J)
+
+learning rate is a hyperparameter that controls the step size in the gradient descent algorithm. A small learning rate may lead to slow convergence, while a large learning rate may cause overshooting and divergence.
+so the learning rate should be chosen carefully to ensure convergence.
+you can select the learning rate "L = 0.01" or "L = 0.001"
+make sure to not take a very large learning rate, otherwise it will not converge and will diverge or a very small learning rate, otherwise it will take a long time to converge.
+
+## Gradient Descent Algorithm
+Gradient Descent Algorithm is an optimization algorithm used to minimize the cost function by iteratively updating the parameters (tita) in the direction of the steepest descent, which is determined by the negative gradient of the cost function.
+The algorithm can be summarized as follows:
+1. Initialize the parameters (tita) randomly or to zero.
+2. Compute the cost function (J(tita)) using the current parameters.
+3. Compute the gradient of the cost function with respect to the parameters (derivative(tita)).
+4. Update the parameters using the gradient descent update rule:
+   tita(j+1) = tita(j) - alpha * derivative(tita(j))
+5. Repeat steps 2-4 until convergence (i.e., the change in the cost function is below a certain threshold or a maximum number of iterations is reached).
+## Normal Equation
+The Normal Equation is a closed-form solution to linear regression that does not require iterative optimization. It can be derived by minimizing the cost function with respect to the parameters (tita) and setting the gradient to zero.
+The Normal Equation is given by:
+tita = (X^T * X)^(-1) * X^T * y
+where,
+X is the design matrix (including a column of ones for the intercept term)
+y is the vector of target values
+
