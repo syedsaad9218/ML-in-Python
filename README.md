@@ -27,5 +27,5 @@ I am using it to practice Python programming concepts, explore data science libr
   - `pandas`
   - `matplotlib`
   - `scikit-learn`
-  - (and more depending on the script)
+  - `seaborn`
 
